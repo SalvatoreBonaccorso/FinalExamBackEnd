@@ -1,0 +1,22 @@
+{
+  "name": "examvue",
+  "version": "1.0.0",
+  "description": "A simple client Vue",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "vue",
+    "client"
+  ],
+  "author": "salvatore bonaccorso <salvo.bonaccorso89@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "^4.2.1",
+    "jquery": "^1.9.1",
+    "popper.js": "^1.14.6",
+    "vue": "^2.5.22",
+    "vue-resource": "^1.5.1"
+  }
+}

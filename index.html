@@ -1,0 +1,50 @@
+<html>
+    <script src="node_modules/jquery/jquery.js"></script>
+    <script src="node_modules/popper.js/dist/popper.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script src="node_modules/vue-resource/dist/vue-resource.js"></script>
+    <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css" />
+    <body>
+
+      <h1>ToDo Salvatore Bonaccorso</h1>
+
+        <div id='app'>
+
+            <br>
+            <input v-model="name" placeholder="name"> 
+            <input v-model="description" placeholder="description"> 
+            <input v-model="assignedTo" placeholder="assignedTo"> 
+            <button type="button" class="btn btn-primary btn-sm"v-on:click="addToDo">addToDo</button>
+            
+            <br>
+            <input v-model="assignedTo" placeholder="assignedTo">
+            <button type="button" class="btn btn-primary btn-sm" v-on:click="getToDoByUser">getToDoByUser</button>
+
+            <br>
+            <input v-model="id" placeholder="id">
+            <button type="button" class="btn btn-primary btn-sm"v-on:click="deleteToDoById">deleteToDoById</button>
+
+            <br>
+            <input v-model="completed" placeholder="true || false">
+            <button type="button" class="btn btn-primary btn-sm"v-on:click="getToDoByCompleted">getToDoByCompleted</button>
+
+            <br>
+            <button type="button" class="btn btn-primary btn-sm"v-on:click="getToDo">getToDo</button>
+
+            <br>
+            <div class="row list-group" v-for="todo in todos">
+              <div class="list-group-item">
+                <div class="column">id: {{ todo.id }}</div>
+                <div class="column">name: {{ todo.name }}</div>
+                <div class="column">description: {{ todo.description }}</div>
+                <div class="column">completed: {{ todo.completed }}</div>
+                <div class="column">assignedTo: {{ todo.assignedTo }}</div>
+              </div>
+            </div>
+
+        </div>
+                        
+    </body>
+    <script src="./app.js"></script>
+</html>
