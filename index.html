@@ -1,50 +1,105 @@
-<html>
-    <script src="node_modules/jquery/jquery.js"></script>
-    <script src="node_modules/popper.js/dist/popper.js"></script>
-    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="node_modules/vue/dist/vue.js"></script>
-    <script src="node_modules/vue-resource/dist/vue-resource.js"></script>
-    <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css" />
-    <body>
+        <html>
+            <script src="node_modules/jquery/jquery.js"></script>
+            <script src="node_modules/popper.js/dist/popper.js"></script>
+            <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+            <script src="node_modules/vue/dist/vue.js"></script>
+            <script src="node_modules/vue-resource/dist/vue-resource.js"></script>
+            <link rel="stylesheet" type="text/css" href="css/myStyle.css" />
+            <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css" />
+            <body style="padding:100px; background-color: antiquewhite;">
 
-      <h1>ToDo Salvatore Bonaccorso</h1>
+              
 
-        <div id='app'>
+                <div id='app'>
+                    <h1>{{ title }}</h1>
+                    <br><br><br>
+                    <div class="row">
+                        <div class="col-7">   
+                  <form>
+                    <!-- 1 STEP -->
+                      <h2>Add a new ToDo</h2>
+                    <input class="form-control" v-model="name" type="text" placeholder="name">
+                    <input class="form-control"  v-model="description"type="text" placeholder="description">
+                    <input class="form-control"v-model="completed" type="text" placeholder="completed">
+                    <input class="form-control" v-model="assignedTo" type="text" placeholder="assignedTo">
+                    <br>
+                    <button type="button" v-on:click="newToDo" class="btn btn-primary btn-sm float-right">Send</button>
+                    <br><br>
+                    <!-- 2 STEP -->
+                      <h2>Remove ToDo</h2>
+                    <input class="form-control" v-model="Id" type="text" placeholder="Id">
+                    <br>
+                    <button type="button" v-on:click="removeToDo" class="btn btn-primary btn-sm float-right">Remove</button>
+                    <br><br>
+                      <!-- 3 STEP -->
+                        <h2>Change the status completed</h2>
+                        <input class="form-control" v-model="Id" type="text" placeholder="Id">
+                      <input class="form-control" v-model="completed" type="text" placeholder="completed">
+                      <br>
+                      <button type="button" v-on:click="" class="btn btn-primary btn-sm float-right">Change</button>
+                      <br><br>
+                    
+                      <!-- 4 STEP -->
 
-            <br>
-            <input v-model="name" placeholder="name"> 
-            <input v-model="description" placeholder="description"> 
-            <input v-model="assignedTo" placeholder="assignedTo"> 
-            <button type="button" class="btn btn-primary btn-sm"v-on:click="addToDo">addToDo</button>
-            
-            <br>
-            <input v-model="assignedTo" placeholder="assignedTo">
-            <button type="button" class="btn btn-primary btn-sm" v-on:click="getToDoByUser">getToDoByUser</button>
 
-            <br>
-            <input v-model="id" placeholder="id">
-            <button type="button" class="btn btn-primary btn-sm"v-on:click="deleteToDoById">deleteToDoById</button>
+                      <!-- 5 STEP -->
 
-            <br>
-            <input v-model="completed" placeholder="true || false">
-            <button type="button" class="btn btn-primary btn-sm"v-on:click="getToDoByCompleted">getToDoByCompleted</button>
 
-            <br>
-            <button type="button" class="btn btn-primary btn-sm"v-on:click="getToDo">getToDo</button>
+                      <!-- 6 STEP -->
+                        <h2>Read a list of one User</h2>
+                      <input class="form-control" v-model="assignedTo" type="text" placeholder="User">
+                      <br>
+                      <button type="button" v-on:click="showUser" class="btn btn-primary btn-sm float-right">Search</button>
+                      <br><br> 
+                    <!-- 7 STEP -->
+                    <h2>Read a list of ToDo completed or less</h2>
+                    <input class="form-control" v-model="completed" type="text" placeholder="completed">
+                    <br>
+                    <button type="button" v-on:click="readListToDoCompleted" class="btn btn-primary btn-sm float-right">Search</button>
+                    <br><br> 
+                    <!-- 8 STEP -->
+                    <h2>Search a word in a list of ToDo</h2>
+                    <input class="form-control" v-model="name" type="text" placeholder="name">
+                    <input class="form-control" v-model="description" type="text" placeholder="description">
+                    <br>
+                    <button type="button" v-on:click="" class="btn btn-primary btn-sm float-right">Search</button>
 
-            <br>
-            <div class="row list-group" v-for="todo in todos">
-              <div class="list-group-item">
-                <div class="column">id: {{ todo.id }}</div>
-                <div class="column">name: {{ todo.name }}</div>
-                <div class="column">description: {{ todo.description }}</div>
-                <div class="column">completed: {{ todo.completed }}</div>
-                <div class="column">assignedTo: {{ todo.assignedTo }}</div>
-              </div>
-            </div>
+                    </form>
+                    </div>
 
-        </div>
-                        
-    </body>
-    <script src="./app.js"></script>
-</html>
+
+                    <!-- STEP -->
+                    <div class="col-5">
+                      <h2>See all ToDo  <button type="button" class="btn btn-primary btn-sm"v-on:click="view">View</button></h2>
+                    <br>
+                    <div class="row list-group" v-for="todo in todos">
+                      <div class="list-group-item">
+                        <div class="column">id: {{ todo.id }}</div>
+                        <div class="column">name: {{ todo.name }}</div>
+                        <div class="column">description: {{ todo.description }}</div>
+                        <div class="column">completed: {{ todo.completed }}</div>
+                        <div class="column">assignedTo: {{ todo.assignedTo }}</div>
+                      </div>
+                    </div>
+
+                  </div>
+                  </div>
+                    <br>
+                      <!--<input v-model="name" placeholder="name"> 
+                    <input v-model="description" placeholder="description"> 
+                    <input v-model="assignedTo" placeholder="assignedTo"> 
+                    <button type="button" class="btn btn-primary btn-sm"v-on:click="addToDo">addToDo</button>
+                    
+                    <br>
+                    <input v-model="assignedTo" placeholder="assignedTo">
+                    <button type="button" class="btn btn-primary btn-sm" v-on:click="getToDoByUser">getToDoByUser</button>
+
+                    <br>
+                    <input v-model="completed" placeholder="true || false">
+                    <button type="button" class="btn btn-primary btn-sm"v-on:click="getToDoByCompleted">getToDoByCompleted</button>
+        -->
+                </div>
+                                
+            </body>
+            <script src="./app.js"></script>
+        </html>
