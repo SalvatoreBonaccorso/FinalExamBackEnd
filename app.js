@@ -10,7 +10,7 @@ var vue = new Vue({
         Id:""
     },
     methods: {
-       // function step
+       // function 0 step
         view: function() {
             var url = 'https://todos-list-sj.herokuapp.com/todos';
             this.$http.get(url)
@@ -21,8 +21,8 @@ var vue = new Vue({
             .catch(error => { console.log("post error") })
         },
         // function 1 step
-            newToDo:function(){    
-        this.$http.post('https://todos-list-sj.herokuapp.com/todos',{
+        newToDo:function(){    
+            this.$http.post('https://todos-list-sj.herokuapp.com/todos',{
             name:this.name,
             description:this.description,
             assignedTo:this.assignedTo,

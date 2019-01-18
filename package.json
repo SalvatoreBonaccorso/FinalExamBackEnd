@@ -22,10 +22,10 @@
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SalvatoreBonaccorso/ProjectClientVue.git"
+    "url": "git+https://github.com/SalvatoreBonaccorso/FinalExamBackEnd.git"
   },
   "bugs": {
-    "url": "https://github.com/SalvatoreBonaccorso/ProjectClientVue/issues"
+    "url": "https://github.com/SalvatoreBonaccorso/FinalExamBackEnd/issues"
   },
-  "homepage": "https://github.com/SalvatoreBonaccorso/ProjectClientVue#readme"
+  "homepage": "https://github.com/SalvatoreBonaccorso/FinalExamBackEnd#readme"
 }
